@@ -12,5 +12,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 # copia o código do servidor para o docker
 COPY ./app /code/app
 
-# inicia o servidor na porta 80
+EXPOSE 80
+
+# inicia o servidor 
 CMD ["python", "app/app.py"]

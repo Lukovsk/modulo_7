@@ -7,18 +7,16 @@ A aplicação deve ser containerizada e deve ser possível executá-la em um con
 
 O dockerfile deve conter as seguintes informações:
 
-<ul>
-    <li> ✅A imagem base deve ser a imagem oficial do Python (a escolha do estudante) </li>
-    <li> ✅A imagem deve instalar o framework web escolhido </li>
-    <li> ✅A imagem deve copiar o código fonte da aplicação para o container </li>
-    <li> ✅A imagem deve expor a porta 80 </li>
-    <li> ✅A imagem deve executar o comando para iniciar a aplicação </li>
-    <li> ✅A imagem deve estar publicada no Dockerhub </li>
-</ul>
+
+- ✅A imagem base deve ser a imagem oficial do Python (a escolha do estudante) 
+- ✅A imagem deve instalar o framework web escolhido
+- ✅A imagem deve copiar o código fonte da aplicação para o container
+- ✅A imagem deve expor a porta 80 
+- ✅A imagem deve executar o comando para iniciar a aplicação
+- ✅A imagem deve estar publicada no Dockerhub
+
 
 ## Conteúdo
-###
-
 
 ### Estrutura de pastas
 Baseei-me em um [repositório oficial do docker](https://github.com/docker/awesome-compose/tree/master/flask) para criar a aplicação em flask aqui. Além disso, também utilizei o [tutorial de docker](https://www.freecodecamp.org/portuguese/news/um-guia-para-iniciantes-em-docker-como-criar-sua-primeira-aplicacao-com-o-docker/) recomendado pelo professor [Murilo](https://github.com/Murilo-ZC).
@@ -47,7 +45,20 @@ Onde:
 - ```venv/```:  diretório da máquina virtual.
 - ```Dockerfile```: arquivo que instrui como criar o docker.
 
-### Como criar o docker
+### Como usar essa aplicação
+Primeiro, clone a imagem deste repositório pelo hub:
+<pre> <code>
+docker pull lukovsk/flask-cv:latest
+</code> </pre>
+
+Depois, apenas execute a imagem em um docker na porta 80 com o seguinte comando:
+<pre> <code>
+docker run -p 80:80 flask-cv
+</code> </pre>
+
+Com isso, o servidor me flask já está rodando na porta 80, apenas acesse ```localhost:80/```.
+
+### Como criei a imagem e o docker
 Após clonar este repositório e navegar até aqui, primeiro é necessário criar a imagem da aplicação.
 
 <pre> <code>
@@ -57,7 +68,7 @@ Obs.: Não se esqueça do "."
 
 Depois, executamos o docker.
 <pre> <code>
-docker run myimage
+docker run -p 80:80 myimage
 </code> </pre>
 
-Com isso, o servidor me flask já está rodando na porta 8000, apenas acesse ```0.0.0.0:80/```.
+Com isso, o servidor me flask já está rodando na porta 80, apenas acesse ```lovalhost:80/```.
