@@ -1,0 +1,45 @@
+.w {
+    color: whitesmoke;
+    width: 600px;
+}
+
+.Nome {
+    color: rgb(255, 87, 87);
+    width: 600px;
+    font-size: 65px;
+}
+
+#back {
+    background-color: rgb(82, 86, 89)
+}
+
+.Ocupação {
+    color: rgb(255, 87, 87);
+    letter-spacing: 2px;
+}
+
+#backgroundBody {
+    background-color: rgb(42, 28, 79);
+}
+
+.espaço {
+    color: rgb(23, 15, 42)
+}
+
+#backgroundLeft {
+    background-color: rgb(23, 15, 42);
+}
+.rodapé {
+    color: whitesmoke;
+    width: 90px;
+}
+
+.habilidades {
+    height: 140px;
+    width: 150px;
+}
+
+img {
+    display: block;
+    width: 150px;
+}
