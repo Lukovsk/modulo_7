@@ -17,7 +17,6 @@ O dockerfile deve conter as seguintes informações:
 
 
 ## Conteúdo
-
 ### Estrutura de pastas
 Inspirei-me em um [repositório oficial do docker](https://github.com/docker/awesome-compose/tree/master/flask) para criar a aplicação em flask aqui. Além disso, também utilizei o [tutorial de docker](https://www.freecodecamp.org/portuguese/news/um-guia-para-iniciantes-em-docker-como-criar-sua-primeira-aplicacao-com-o-docker/) recomendado pelo professor [Murilo](https://github.com/Murilo-ZC).
 
@@ -45,7 +44,7 @@ Onde:
 - ```Dockerfile```: arquivo que instrui como criar o docker.
 
 ### Como usar essa aplicação
-Primeiro, clone a imagem deste repositório pelo hub:
+Primeiro, clone a imagem deste repositório pelo terminal, ela também pode ser encontrada no [DockerHub](https://hub.docker.com/r/lukovsk/flask-cv):
 <pre> <code>
 docker pull lukovsk/flask-cv:latest
 </code> </pre>
