@@ -2,10 +2,10 @@ import databases
 import ormar
 import sqlalchemy
 
-# from .config import settings
+from .config import settings
 
-# database = databases.Database(settings.db_url)
-database = databases.Database("sqlite:///games.db")
+database = databases.Database(settings.db_url)
+# database = databases.Database("sqlite:///games.db")
 metadata = sqlalchemy.MetaData()
 
 
@@ -32,7 +32,7 @@ class Task(ormar.Model):
     content: str = ormar.String(max_length=1024, nullable=False)
     user_id: int = ormar.Integer()
 
-engine = sqlalchemy.create_engine("sqlite:///games.db")
-# engine = sqlalchemy.create_engine(settings.db_url)
+# engine = sqlalchemy.create_engine("sqlite:///games.db")
+engine = sqlalchemy.create_engine(settings.db_url)
 # metadata.drop_all(engine)
 metadata.create_all(engine)
