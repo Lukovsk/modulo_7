@@ -32,7 +32,7 @@ async def sign_up(user: UserSchema = Body(default=None)):
     await User.objects.create(name=user.name, 
                               email=user.email,
                               password=user.password)
-    return signJWT(user.id)
+    return signJWT((await User.objects.get(email=user.email)).id)
 
 # Função que verifica os dados do usuário
 async def check_user(data: LoginUserSchema):

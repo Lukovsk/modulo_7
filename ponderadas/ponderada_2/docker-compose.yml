@@ -13,6 +13,7 @@ services:
       POSTGRES_PASSWORD: 3569
 
   api:
+    image: lukovsk/ponderada_2-api
     build:
       context: ./backend
     command: bash -c 'uvicorn app.main:app --host 0.0.0.0'
@@ -24,6 +25,7 @@ services:
       - db
 
   frontend:
+    image: lukovsk/ponderada_2-frontend
     build:
       context: ./frontend
     ports:

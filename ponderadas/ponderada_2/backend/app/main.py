@@ -7,13 +7,7 @@ from app.routes.user import app as user_router
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(title="FastAPI, Docker and Jupiter")
 
-origins = [
-    "http://localhost:3001",
-    "localhost:3001",
-    "http://localhost:3000",
-    "localhost:3000",
-    "http://localhost:8000",
-    "localhost:8000",]
+origins = ["*"]
 
 app.add_middleware( 
     CORSMiddleware,
