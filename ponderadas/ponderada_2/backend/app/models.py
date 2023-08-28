@@ -17,6 +17,7 @@ class TaskSchema(BaseModel):
 
 # Classe para representar os usuários do sistema
 class UserSchema(BaseModel):
+    id : int = Field(default=None, gt=0)
     name : str = Field(default=None)
     email : EmailStr = Field(default=None)
     password : str = Field(default=None)

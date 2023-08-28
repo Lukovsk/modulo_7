@@ -32,9 +32,7 @@ async def sign_up(user: UserSchema = Body(default=None)):
     await User.objects.create(name=user.name, 
                               email=user.email,
                               password=user.password)
-    return signJWT(user.email)
-
-
+    return signJWT(user.id)
 
 # Função que verifica os dados do usuário
 async def check_user(data: LoginUserSchema):
@@ -51,5 +49,12 @@ async def check_user(data: LoginUserSchema):
 @app.post("/login", tags=["user"])
 async def user_login(user: UserSchema = Body(default=None)):        
     if check_user(user):
-        return signJWT(user.email)
+        return signJWT((await User.objects.get(email=user.email)).id)
     return {"error": "Dados inválidos"}
+
+@app.delete("/delete/{id}")
+async def delete(id: int):
+    if not database.is_connected:
+        await database.connect()
+        
+    return await User.objects.delete(id=id)

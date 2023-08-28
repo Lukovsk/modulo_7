@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Body
 from app.models import TaskSchema
 from app.auth.jwt_bearer import jwtBearer
 from app.db import database, User, Task
@@ -42,14 +42,14 @@ async def get_task_by_user_name(name: str):
 
 # create a task
 @app.post("/create", dependencies=[Depends(jwtBearer())], tags=["task"])
-async def create_task(task: TaskSchema):
+async def create_task(task: TaskSchema = Body(default=None)):
     if not database.is_connected:
         await database.connect()
         
     await Task.objects.create(title=task.title,
                               content=task.content,
                               user_id=task.user_id)
-    return {"data": task.dict()}
+    return {"success": "Successfully created"}
 
 @app.put("/update", dependencies=[Depends(jwtBearer())])
 async def update_task(new_task: TaskSchema):
@@ -61,4 +61,9 @@ async def update_task(new_task: TaskSchema):
                                      content=new_task.content,
                                      user_id=new_task.user_id)
     
-    
+@app.delete("/delete/{id}", dependencies=[Depends(jwtBearer())])
+async def delete_task(id: int):
+    if not database.is_connected:
+        await database.connect()
+        
+    return await Task.objects.delete(id=id)
