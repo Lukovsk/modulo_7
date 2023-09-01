@@ -1,0 +1,20 @@
+# Pegando a imagem oficial do node 18
+FROM node:18-alpine
+
+# Cria o diretorio que vamos dockerizar
+WORKDIR /front
+
+# Copia os jsons com as dependencias de pacotes para dentro do container
+COPY ./package*.json /front
+
+# instala as dependencias necessários no docker
+RUN npm i
+
+# copia o código do front para o docker
+COPY . /front/
+
+# expõe a porta 3000
+EXPOSE 3000
+
+# inicia o servidor 
+CMD ["node", "server.js"]

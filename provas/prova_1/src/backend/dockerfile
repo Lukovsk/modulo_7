@@ -1,0 +1,20 @@
+# Pegando a imagem oficial do python 3.9
+FROM python:3.9
+
+# Cria o diretorio que vamos dockerizar
+WORKDIR /code
+
+# Copia o requirements para dentro do diretório que estamos trabalhando no container
+COPY ./requirements.txt /code/requirements.txt
+
+# instala os frameworks necessários no docker
+RUN pip install -r /code/requirements.txt
+
+# copia o resto dos arquivos do servidor para o docker
+COPY . /code
+
+# expõe a porta 8000 do computador
+EXPOSE 8000
+
+# inicia o servidor 
+CMD ["python", "main.py"]

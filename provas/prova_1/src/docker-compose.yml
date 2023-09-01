@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  server:
+    image: lukovsk/prova_1-server
+    ports:
+      - "8000:8000"
+  frontend:
+    image: lukovsk/prova_1-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+
+# O código abaixo foi rodado primeiro para a criação das imagens
+# Com as imagens criadas, utilizei o código acima para puxar das minhas próprias imagens!
+# services:
+#   server:
+#     build:
+#       context: ./backend
+#     ports:
+#       - "8000:8000"
+#   frontend:
+#     build:
+#       context: ./frontend
+#     ports:
+#       - "3000:3000"
+#     depends_on:
+#       - server
