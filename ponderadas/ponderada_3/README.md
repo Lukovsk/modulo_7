@@ -16,6 +16,7 @@ Construção e deploy de um modelo de predição ou classificação criados pelo
 # Conteúdo
 
 ## Vídeo de demonstração
+[demonstração.webm](https://github.com/Lukovsk/modulo_7/assets/99260684/94bb3754-651b-4636-a8bb-435d6d483f36)
 
 
 ## Estrutura de pastas
