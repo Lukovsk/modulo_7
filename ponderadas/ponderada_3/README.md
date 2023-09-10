@@ -18,7 +18,6 @@ Construção e deploy de um modelo de predição ou classificação criados pelo
 ## Vídeo de demonstração
 [demonstração.webm](https://github.com/Lukovsk/modulo_7/assets/99260684/94bb3754-651b-4636-a8bb-435d6d483f36)
 
-
 ## Estrutura de pastas
 <pre><code>ponderada_3/backend/
 │
@@ -50,7 +49,7 @@ Em seguida, basta rodar o container com o backend:
 Com isso, o backend já estará rodando na porta ```8000```, basta fazer um post na rota [http://localhost:8000/predict](http://localhost:8000/predict) com um json na seguinte estrutura:
 <pre><code>{
     "Age": 0.5384,
-    "annual_income": 0.3877
+    "Annual_Income": 0.3877
 }</code> </pre>
 
 ## Ambiente de desenvolvimento
