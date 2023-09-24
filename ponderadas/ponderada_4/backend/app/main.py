@@ -1,14 +1,11 @@
-import pandas as pd
-# from pycaret.regression import load_model, predict_model
-from pydantic import BaseModel
 from fastapi import FastAPI
-from app.db import database, User, Task
+from app.db import database, User, Dash
 
-from app.routes.task import app as task_router
+from app.routes.dash import app as dash_router
 from app.routes.user import app as user_router
 
 from fastapi.middleware.cors import CORSMiddleware
-app = FastAPI(title="FastAPI, Docker and Jupiter")
+app = FastAPI(title="Júpiter FullMegaStack")
 
 origins = ["*"]
 
@@ -20,24 +17,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# model = load_model("model_api")
-
-class inputModel(BaseModel):
-    Age: float
-    Annual_Income: float
-
-
-class outputModel(BaseModel):
-    prediction: float
-
-app.include_router(task_router)
+app.include_router(dash_router)
 app.include_router(user_router)
-
-# @app.post("/predict", response_model=outputModel)
-# def predict(data: inputModel):
-#     data = pd.DataFrame([data.dict()])
-#     predictions = predict_model(model, data=data)
-#     return {"prediction": predictions["prediction_label"].iloc[0]}
 
 
 @app.on_event("startup")
@@ -47,8 +28,8 @@ async def startup():
     # create a dummy entry
     await User.objects.get_or_create(name="test man", email="test@test.com", password="test")
     print(await User.objects.all())
-    await Task.objects.get_or_create(title="Test Title", content="Test content", user_id=1)
-    print(await Task.objects.all())
+    await Dash.objects.get_or_create(age=0.3, Annual_Income=0.501, Spendin_Score=0.41249)
+    print(await Dash.objects.all())
 
 
 @app.on_event("shutdown")
