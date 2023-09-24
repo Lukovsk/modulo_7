@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from app.db import database, User, Dash
 
+import json
+
 from app.routes.dash import app as dash_router
 from app.routes.user import app as user_router
 
@@ -28,7 +30,16 @@ async def startup():
     # create a dummy entry
     await User.objects.get_or_create(name="teste", email="test@test.com", password="teste")
     print(await User.objects.all())
-    await Dash.objects.get_or_create(Age=0.3, Annual_Income=0.501, Spending_Score=0.41249)
+    
+    with open('app/dados.json', 'r') as json_file:
+        data = json.load(json_file)
+
+    for entry in data:
+        await Dash.objects.get_or_create(
+            Age=entry["Age"],
+            Annual_Income=entry["Annual_Income"],
+            Spending_Score=entry["Spending_Score"])
+        
     print(await Dash.objects.all())
 
 
