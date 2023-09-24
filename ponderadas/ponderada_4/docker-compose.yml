@@ -12,7 +12,14 @@ services:
       POSTGRES_USER: lukovsk
       POSTGRES_PASSWORD: 3569
 
-  api:
+  model_api:
+    build:
+      context: ./api
+    ports:
+     - "8745:8745"
+    
+
+  backend:
     build:
       context: ./backend
     command: bash -c 'uvicorn app.main:app --host 0.0.0.0'
@@ -22,6 +29,7 @@ services:
       - DATABASE_URL=postgresql://lukovsk:3569@db:5432/postgres
     depends_on:
       - db
+      - model_api
 
   # frontend:
   #   build:

@@ -35,7 +35,7 @@ const LoginForm = () => {
         secure: true,
         sameSite: "strict",
       });
-      router.push("/tasks");
+      router.push("/dash");
     } catch (error) {
       console.error("Erro ao logar:", error);
     }
