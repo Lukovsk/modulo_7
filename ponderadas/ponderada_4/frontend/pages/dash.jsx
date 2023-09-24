@@ -8,6 +8,11 @@ import axios from "axios";
 
 function Dashboard() {
   const [data, setData] = useState([]);
+  const [Means, setMeans] = useState({
+    Age: 0,
+    Annual_Income: 0,
+    Spending_Score: 0,
+  });
 
   let loadData = async () => {
     try {
@@ -17,13 +22,23 @@ function Dashboard() {
           Annual_Income: [],
           Spending_Score: [],
         };
+        let newMeans = {
+          Age: 0,
+          Annual_Income: 0,
+          Spending_Score: 0,
+        };
         for (let i = 0; i < data.data.length; i++) {
           newData["Age"].push(data.data[i]["Age"]);
           newData["Annual_Income"].push(data.data[i]["Annual_Income"]);
           newData["Spending_Score"].push(data.data[i]["Spending_Score"]);
+          newMeans["Age"] += data.data[i]["Age"] / data.data.length;
+          newMeans["Annual_Income"] += data.data[i]["Age"] / data.data.length;
+          newMeans["Spending_Score"] +=
+            data.data[i]["Spending_Score"] / data.data.length;
         }
-        print(newData.Spending_Score);
+
         setData(newData);
+        setMeans(newMeans);
       });
     } catch (err) {
       console.log("Erro ao pegar a resposta: ", err);
@@ -39,10 +54,13 @@ function Dashboard() {
       <h1>Dashboard Simples</h1>
       <div className="dashboard">
         <div className="cards">
-          <Card title="Média de renda dos clientes" content="$10,000" />
+          <Card
+            title="Média de renda dos clientes"
+            content={"R$" + Means.Annual_Income.toFixed(4)}
+          />
           <Card
             title="Média da pontuação de gastos dos clientes"
-            content="500"
+            content={Means.Spending_Score.toFixed(4)}
           />
         </div>
         <div className="graphs">

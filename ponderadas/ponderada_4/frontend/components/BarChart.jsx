@@ -21,8 +21,8 @@ function BarChart({ data }) {
           {
             label: data.label,
             data: data.values,
-            backgroundColor: "rgba(75, 192, 192, 0.2)",
-            borderColor: "rgba(75, 192, 192, 1)",
+            backgroundColor: "#5e2355",
+            borderColor: "#00ccff85",
             borderWidth: 1,
           },
         ],
