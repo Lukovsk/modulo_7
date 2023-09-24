@@ -26,9 +26,9 @@ async def startup():
     if not database.is_connected:
         await database.connect()
     # create a dummy entry
-    await User.objects.get_or_create(name="test man", email="test@test.com", password="test")
+    await User.objects.get_or_create(name="teste", email="test@test.com", password="teste")
     print(await User.objects.all())
-    await Dash.objects.get_or_create(age=0.3, Annual_Income=0.501, Spendin_Score=0.41249)
+    await Dash.objects.get_or_create(Age=0.3, Annual_Income=0.501, Spending_Score=0.41249)
     print(await Dash.objects.all())
 
 

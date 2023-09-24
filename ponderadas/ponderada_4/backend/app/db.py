@@ -28,7 +28,7 @@ class Dash(ormar.Model):
         tablename = "dash"
         
     id: int = ormar.Integer(primary_key=True)
-    age: int = ormar.Float()
+    Age: int = ormar.Float()
     Annual_Income: float = ormar.Float()
     Spending_Score: float = ormar.Float()
 
