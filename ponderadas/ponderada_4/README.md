@@ -13,8 +13,9 @@ Esta atividade tem por objetivo realizar a integração das demais atividades de
 # Conteúdo
 
 ## Vídeo de demonstração
-https://github.com/Lukovsk/modulo_7/assets/99260684/c2529f70-fc7f-45ce-b64e-0a190a61cbea
 
+
+https://github.com/Lukovsk/modulo_7/assets/99260684/34ff14f7-be17-4e80-a129-79f19b24f65e
 
 
 ## Arquitetura da solução
