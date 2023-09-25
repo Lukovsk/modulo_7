@@ -36,3 +36,62 @@ a {
   align-items: center;
   flex-direction: column;
 }
+
+.dash-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+/* ModalStyles.css */
+
+.modal-button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.modal-button:hover {
+  background-color: #0056b3;
+}
+
+.modal-content {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.red {
+  background-color: red;
+}
+
+.buttons-div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.input-div {
+  display: flex;
+  margin: 10px;
+}
+
+input {
+  margin-left: 2px;
+  margin-right: 2px;
+}

@@ -5,14 +5,44 @@ import BarChart from "../components/BarChart";
 import PieChart from "../components/PieChart";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Modal from "react-modal";
+import Cookies from "js-cookie";
+import Button from "react-bootstrap/Button";
 
 function Dashboard() {
   const [data, setData] = useState([]);
+  const [inputAge, setInputAge] = useState("");
+  const [inputRenda, setInputRenda] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const [Means, setMeans] = useState({
     Age: 0,
     Annual_Income: 0,
     Spending_Score: 0,
   });
+
+  const handleSaveData = async () => {
+    try {
+      const token = Cookies.get("token");
+      await axios
+        .post(
+          "http://localhost:8000/dash/",
+          {
+            Age: inputAge,
+            Annual_Income: inputRenda,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log("post response: ", res);
+        });
+    } catch (err) {
+      console.log("Erro em fazer o post: ", err);
+    }
+  };
 
   let loadData = async () => {
     try {
@@ -51,7 +81,45 @@ function Dashboard() {
 
   return (
     <div>
-      <h1>Dashboard Simples</h1>
+      <div className="dash-header">
+        <h1>Dashboard Simples</h1>
+        <Button className="button" onClick={() => setShowModal(true)}>
+          Add Costumer
+        </Button>
+        <Modal
+          isOpen={showModal}
+          onRequestClose={() => setShowModal(false)}
+          contentLabel="Insert new costumer"
+          className="modal-content"
+        >
+          <h2>Insert new costumer</h2>
+          <div className="input-div">
+            <input
+              type="number"
+              placeholder="Age"
+              onChange={(e) => setInputAge(e.target.value)}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Annual Income"
+              onChange={(e) => setInputRenda(e.target.value)}
+              required
+            />
+          </div>
+          <div className="buttons-div">
+            <button className="modal-button" onClick={() => handleSaveData()}>
+              Save Costumer
+            </button>
+            <button
+              className="modal-button red"
+              onClick={() => setShowModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </Modal>
+      </div>
       <div className="dashboard">
         <div className="cards">
           <Card

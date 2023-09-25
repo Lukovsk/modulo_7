@@ -9,7 +9,6 @@ const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  //   const MySwal = withReactContent(Swal);
 
   const handler = async (e) => {
     e.preventDefault();
@@ -31,12 +30,7 @@ const RegisterForm = () => {
         secure: true,
         sameSite: "strict",
       });
-      Cookies.set("author", response.data["user_id"], {
-        expires: 5 / 24 / 60,
-        secure: true,
-        sameSite: "strict",
-      });
-      router.push("/tasks");
+      router.push("/dash");
     } catch (error) {
       console.error("Erro ao registrar:", error);
     }

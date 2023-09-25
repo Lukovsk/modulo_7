@@ -8,7 +8,6 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  // const MySwal = withReactContent(Swal);
 
   const handlerLogin = async (e) => {
     e.preventDefault();
@@ -24,13 +23,7 @@ const LoginForm = () => {
         loginData
       );
       console.log("Login bem-sucedido: ", response.data["acess token"]);
-      console.log("Login bem-sucedido: ", response.data["user_id"]);
       Cookies.set("token", response.data["acess token"], {
-        expires: 5 / 24 / 60,
-        secure: true,
-        sameSite: "strict",
-      });
-      Cookies.set("author", response.data["user_id"], {
         expires: 5 / 24 / 60,
         secure: true,
         sameSite: "strict",
