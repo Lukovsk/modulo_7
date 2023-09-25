@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    expose:
+      - 5432
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: lukovsk
+      POSTGRES_PASSWORD: 3569
+
+  model_api:
+    build:
+      context: ./api
+    ports:
+     - "8745:8745"
+    
+
+  backend:
+    build:
+      context: ./backend
+    command: bash -c 'uvicorn app.main:app --host 0.0.0.0'
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://lukovsk:3569@db:5432/postgres
+    depends_on:
+      - db
+      - model_api
+
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #   ports:
+  #     - "3000:3000"
+
+
+volumes:
+  postgres_data:

@@ -22,7 +22,7 @@ class outputModel(BaseModel):
 
 # Define predict function
 @app.post("/predict", response_model=outputModel)
-async def predict(data: inputModel):
+def predict(data: inputModel):
     data = pd.DataFrame([data.dict()])
-    predictions = await predict_model(model, data=data)
+    predictions = predict_model(model, data=data)
     return {"prediction": predictions["prediction_label"].iloc[0]}
