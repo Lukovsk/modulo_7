@@ -2,10 +2,10 @@ import databases
 import ormar
 import sqlalchemy
 
-# from .config import settings
+from .config import settings
 
-# database = databases.Database(settings.db_url)
-database = databases.Database("sqlite:///costumers.db")
+database = databases.Database(settings.db_url)
+# database = databases.Database("sqlite:///costumers.db")
 metadata = sqlalchemy.MetaData()
 
 
@@ -32,7 +32,7 @@ class Dash(ormar.Model):
     Annual_Income: float = ormar.Float()
     Spending_Score: float = ormar.Float()
 
-engine = sqlalchemy.create_engine("sqlite:///costumers.db")
-# engine = sqlalchemy.create_engine(settings.db_url)
-metadata.drop_all(engine)
+# engine = sqlalchemy.create_engine("sqlite:///costumers.db")
+engine = sqlalchemy.create_engine(settings.db_url)
+# metadata.drop_all(engine)
 metadata.create_all(engine)
