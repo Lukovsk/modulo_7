@@ -1,4 +1,4 @@
-# Atividade 4: Criação de uma aplicação protegida com CRUD
+# Atividade 4: Construção de Dashboard para Visualização de Dados
 
 ## Enunciado
 Esta atividade tem por objetivo realizar a integração das demais atividades desenvolvidas. Ela será o frontend de visualização de dados do modelo disponibilizado. Esta interface deverá consumir os dados disponibilizados da atividade ponderada 3. O acesso a este dashboard deverá acontecer mediante ao login do usuário, conforme desenvolvido na atividade ponderada 2.
@@ -13,6 +13,9 @@ Esta atividade tem por objetivo realizar a integração das demais atividades de
 # Conteúdo
 
 ## Vídeo de demonstração
+
+
+https://github.com/Lukovsk/modulo_7/assets/99260684/34ff14f7-be17-4e80-a129-79f19b24f65e
 
 
 ## Arquitetura da solução
