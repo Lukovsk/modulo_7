@@ -3,7 +3,7 @@ import psycopg2
 # Constantes
 DB_USER = "jupiter"
 DB_PASSWORD = "87654321"
-DB_HOST = "prova2-database.cr0tf1tanemb.us-east-1.rds.amazonaws.com"
+DB_HOST = "prova-2-database.cr0tf1tanemb.us-east-1.rds.amazonaws.com"
 DB_PORT = "5432"
 DB_NAME = "prova2"
 
