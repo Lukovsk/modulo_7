@@ -32,6 +32,21 @@ app.add_middleware(
 )
 
 
+@app.post("/create-table")
+def create_table():
+    cur.execute(
+        """DROP TABLE IF EXISTS minhas_notas ;
+
+    CREATE TABLE minhas_notas (
+        id SERIAL PRIMARY KEY,
+        titulo VARCHAR(255) NOT NULL,
+        descricao TEXT NOT null,
+        data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );"""
+    )
+    return {"response": "ok"}
+
+
 @app.get("/notes")
 def get_notes():
     cur.execute("SELECT * FROM minhas_notas;")
