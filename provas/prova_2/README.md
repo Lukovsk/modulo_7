@@ -52,6 +52,9 @@ python3 main.py</code></pre>
 ![Alt text](./media/servidor-rodando.png)
 Para verificar se está acessível, vamos tentar acessar pelo navegador a rota [http://34.239.111.82:8000/docs](http://34.239.111.82:8000/docs) do servidor fastapi: 
 ![Alt text](./media/servidor-funcionando.png)
+Testando as rotas, vi que o banco não estava criado, por isso, criei uma rota no backend que cria a tabela:
+![ALt](./media/gambiarra.png)
+Assim, ligando a api e usando essa rota uma vez, o banco é criado e as outras rotas funcionam.
 Boa! Agora vamos para o frontend.
 
 #### Passo 6: Colocando o frontend no EC2
