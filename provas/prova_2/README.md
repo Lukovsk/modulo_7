@@ -10,13 +10,12 @@ Cada um desses recursos deve ser criado utilizando uma instância de EC2 para su
 
 #### Passos 1 e 2: Criar instâncias EC2 para frontend e backend
 Criação de um EC2 para o frontend e outro para o backend. Aqui, o frontend possui permissões de entrada na porta 80 (usaremos o apache para disponibilizá-lo), já o backend, coloquei qualquer configuração e mudarei ela para colocar na porta 8000.
-![Alt text](./media/instancias-ec2.png)
-![Alt text](./media/instancias-ec2.png)
+![Duas instânicas no EC2 criadas](./media/instancias-ec2.png)
 
 #### Passo 3: Criar um RDS utilizando postgres.
 Criaremos um RDS utilizando postgres. Para isso, configuramos para que ele tenha conexão com o EC2 do backend:
-![Alt text](./media/banco-conecta-ec2.png)
-![Alt text](./media/banco-criado.png)
+![Mostrando no RDS o banco conectado ao EC2 do backend](./media/banco-conecta-ec2.png)
+![Mostrando o banco criado e seu endpoint disponível](./media/banco-criado.png)
 Concomitantemente, alteramos as configurações de acesso no próprio backend. Acessaremos o banco por meio das seguintes configurações:
 <pre><code>DB_USER = "jupiter"
 DB_PASSWORD = "87654321"
@@ -27,7 +26,7 @@ DB_NAME = "prova2"</code></pre>
 #### Passo 4: Comunicação e Implantação
 Antes de entrar nos EC2's, vamos arrumar algumas questões aqui nos próprios serviços.
 Primeiro, precisamos garantir que as requisições que o frontend for fazer ao backend estão corretas, por isso, colocamos, no local do host de cada requisição, a rota correta para o EC2 do backend utilizando seu IPv4 público. 
-![Alt text](./media/ipv4-backend.png)
+![Mostrando o ipv4 do backend pra colocar na integração do frontend](./media/ipv4-backend.png)
 
 Agora sim, vamos acessar os EC2 e fazer tudo funcionar.
 
@@ -49,11 +48,11 @@ Antes disso, vamos instalar as bibliotecas necessárias:
 <pre><code>sudo pip3 install -r requirements.txt
 python3 criar_banco.py
 python3 main.py</code></pre>
-![Alt text](./media/servidor-rodando.png)
+![Mostrando o servidor rodando](./media/servidor-rodando.png)
 Para verificar se está acessível, vamos tentar acessar pelo navegador a rota [http://34.239.111.82:8000/docs](http://34.239.111.82:8000/docs) do servidor fastapi: 
-![Alt text](./media/servidor-funcionando.png)
+![Mostrando o servidor funcionando na rota docs do fastapi](./media/servidor-funcionando.png)
 Testando as rotas, vi que o banco não estava criado, por isso, criei uma rota no backend que cria a tabela:
-![ALt](./media/gambiarra.png)
+![Gambiarra pro banco funcionar, criei uma rota pra criar a tabela](./media/gambiarra.png)
 Assim, ligando a api e usando essa rota uma vez, o banco é criado e as outras rotas funcionam.
 Boa! Agora vamos para o frontend.
 
@@ -69,4 +68,4 @@ sudo cp -r ./modulo_7/provas/prova_2/frontend /var/www/
 sudo mv /var/www/frontend /var/www/html</code></pre>
 
 Pronto! Temos nosso frontend na web pela rota [http://3.88.109.217](http://3.88.109.217)
-![Alt text](./media/front-rodando.png)
+![Frontend funcionando!](./media/front-rodando.png)
