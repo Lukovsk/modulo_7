@@ -25,7 +25,7 @@ function Dashboard() {
       const token = Cookies.get("token");
       await axios
         .post(
-          "http://localhost:8000/dash/",
+          "http://0.0.0.0:8000/dash/",
           {
             Age: inputAge,
             Annual_Income: inputRenda,
@@ -46,7 +46,7 @@ function Dashboard() {
 
   let loadData = async () => {
     try {
-      await axios.get("http://localhost:8000/dash/").then((data) => {
+      await axios.get("http://0.0.0.0:8000/dash/").then((data) => {
         let newData = {
           Age: [],
           Annual_Income: [],

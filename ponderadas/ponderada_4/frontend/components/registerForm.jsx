@@ -21,7 +21,7 @@ const RegisterForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/user/signup",
+        "http://0.0.0.0:8000/user/signup",
         registerData
       );
       // Para salvar o token como um cookie

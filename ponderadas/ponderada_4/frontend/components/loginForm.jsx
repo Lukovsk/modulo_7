@@ -19,7 +19,7 @@ const LoginForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/user/login",
+        "http://0.0.0.0:8000/user/login",
         loginData
       );
       console.log("Login bem-sucedido: ", response.data["acess token"]);
