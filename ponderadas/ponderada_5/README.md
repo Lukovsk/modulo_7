@@ -11,7 +11,13 @@ Artigo de referência: [Machine learning for internet of things data analysis: a
 - ✅ Resenha Crítica: desenvolvimento de uma resenha crítica sobre o artigo, apresentando os pontos positivos e negativos, destacando o que foi testado no projeto.
 
 ## Sumarização 
+O artigo apresenta uma pesquisa que se concentra em explorar a interseção da Internet das Coisas (IoT), cidades inteligentes e algoritmos de aprendizado de máquina (ML) para melhorar a eficiência e qualidade de vida em ambientes urbanos.
 
+A seção sobre IoT discute as diferentes arquiteturas utilizadas para garantir a sincronização entre sensores, atuadores e o armazenamento de dados, com um foco na aplicação dessas tecnologias no contexto da aviação. A utilização de serviços de nuvem para suportar a aplicação é mencionada como um ponto-chave de convergência com o projeto que fizemos.
+
+A seção sobre cidades inteligentes explora como esses modelos são estudados e implementados com soluções de IoT, enfatizando os impactos positivos ambientais e sociais que podem surgir. A pesquisa também aborda os desafios relacionados à gestão de dados das cidades inteligentes, destacando o conceito de economia circular como relevante para o projeto.
+
+A seção sobre a taxonomia de algoritmos de ML discute os diferentes tipos de algoritmos e modelos de aprendizado de máquina, incluindo o uso de algoritmos de balanceamento de dados, como oversample e undersample, que foram cruciais para o projeto.
 
 ## Resenha Crítica
 
